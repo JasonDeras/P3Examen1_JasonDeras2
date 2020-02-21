@@ -20,7 +20,7 @@ class Starks{
 	public: 
 
 		Starks();
-		Starks(string, int, string, string, Familia_Noble* familia_noble,int);
+		Starks(string, int, string, string,int);
 
 		string getJefe_Familia();
 		void setJefe_Familia(string);
@@ -39,6 +39,8 @@ class Starks{
 
 		int getCantidad_Integrantes();
 		void setCantidad_Integrantes(int);
+
+		string toString();
 
 		~Starks();
 };

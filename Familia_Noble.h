@@ -36,6 +36,8 @@ class Familia_Noble{
 		int getDefensa();
 		void setDefensa(int);
 
+		string toString();
+		
 		~Familia_Noble();
 };
 

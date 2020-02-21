@@ -1,7 +1,7 @@
 #include "Starks.h"
 #include "Familia_Noble.h"
 #include <typeinfo>
-
+#include <sstream>
 using namespace std;
 
 Starks::Starks(){
@@ -15,12 +15,11 @@ Starks::Starks(){
 
 }
 
-Starks::Starks(string jefe_familia,int lobos_huargos,string animal_emblema ,string lema, Familia_Noble * familia_noble, int cantidad_integrantes){
+Starks::Starks(string jefe_familia,int lobos_huargos,string animal_emblema ,string lema, int cantidad_integrantes){
 	this->jefe_familia=jefe_familia;
 	this->lobos_huargos=lobos_huargos;
 	this->animal_emblema=animal_emblema;
 	this->lema=lema;
-	this->familia_noble=familia_noble;
 	this->cantidad_integrantes=cantidad_integrantes;
 }
 
@@ -62,6 +61,29 @@ int Starks::getCantidad_Integrantes(){
 
 void Starks::setCantidad_Integrantes(int cantidad_integrantes){
 	this->cantidad_integrantes=cantidad_integrantes;
+}
+
+string Starks::toString(){
+
+	//Cantidad de integrantes
+	stringstream ss;  
+	ss<<cantidad_integrantes;  
+	string s;  
+	ss>>s;  
+
+	//Cantidad de lobos huargos a string
+	stringstream ss2;  
+	ss2<<lobos_huargos;
+	string s2;  
+	ss2>>s2; 
+	
+	string sale="Jefe de familiar: "+jefe_familia+"\n"
+	+"Lobos Huargos: "+s2+"\n"
+	+"Emblema Animal: "+animal_emblema+"\n"
+	+"Lema:" +lema+"\n"
+	+"Cantidad de integrantes: "+s+"\n";
+
+	return sale;
 }
 
 Starks::~Starks(){

@@ -13,14 +13,16 @@ Guardia_Real::Guardia_Real(){
 	static const int ARQUERO=3;
 	ataque=0;
 	defensa=0;
+	tipo=0;
 
 }
 
-Guardia_Real::Guardia_Real(string nombre, int edad,int ataque, int defensa){
+Guardia_Real::Guardia_Real(string nombre, int edad,int ataque, int defensa, int tipo){
 	this->nombre=nombre;
 	this->edad=edad;
 	this->ataque=ataque;
 	this->defensa=defensa;
+	this->tipo=tipo;
 }
 
 string Guardia_Real::getNombre(){
@@ -53,6 +55,14 @@ int Guardia_Real::getDefensa(){
 
 void Guardia_Real::setDefensa(int defensa){
 	this->defensa=defensa;
+}
+
+int Guardia_Real::getTipo(){
+	return tipo;
+}
+
+void Guardia_Real::setTipo(int tipo){
+	this->tipo=tipo;
 }
 
 Guardia_Real::~Guardia_Real(){

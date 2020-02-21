@@ -17,11 +17,12 @@ class Guardia_Real{
 		static const int ARQUERO=3;
 		int ataque;
 		int defensa;
+		int tipo;
 
 	public: 
 
 		Guardia_Real();
-		Guardia_Real(string, int, int, int);
+		Guardia_Real(string, int, int, int,int);
 
 		string getNombre();
 		void setNombre(string);
@@ -38,6 +39,9 @@ class Guardia_Real{
 		int getDefensa();
 		void setDefensa(int);
 
+		int getTipo();
+		void setTipo(int); 
+		
 		~Guardia_Real();
 };
 
