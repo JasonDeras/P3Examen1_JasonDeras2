@@ -1,12 +1,13 @@
 #include <typeinfo>
 #include <string>
 #include "Guardia_Real.h"
+
 using namespace std;
 
 #ifndef LANNISTER_H
-#define STARKS_H
+#define LANNISTER_H
 
-class LANNISTER_H{
+class Lannister{
 	
 	private: 
 
@@ -32,15 +33,15 @@ class LANNISTER_H{
 		string getLema();
 		void setLema(string);
 
-		Guardia_Real* getFamila_Noble();
-		void setFamilia_Noble(Guardia_Real* guardia_real);
+		Guardia_Real* getGuardia_Real();
+		void setGuardia_Real(Guardia_Real* guardia_real);
 
-		int gerDinero();
-		void setDinero();
+		int getDinero();
+		void setDinero(int);
 
 		int getFuerza_Montania();
-		void setFerza_Montani();
-		
+		void setFuerza_Montania(int);
+
 		int getCantidad_Integrantes();
 		void setCantidad_Integrantes(int);
 

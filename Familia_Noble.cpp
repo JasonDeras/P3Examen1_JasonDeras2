@@ -38,6 +38,14 @@ void Familia_Noble::setSimbolo_Escudo(string simbolo_escudo){
 	this->simbolo_escudo=simbolo_escudo;
 }
 
+string Familia_Noble::getLema(){
+	return lema;
+}
+
+void Familia_Noble::setLema(string lema){
+	this->lema=lema;
+}
+
 int Familia_Noble::getAtaque(){
 	return ataque;
 }

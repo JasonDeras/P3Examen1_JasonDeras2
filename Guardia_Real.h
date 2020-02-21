@@ -1,0 +1,44 @@
+#include <typeinfo>
+#include <string>
+
+using namespace std;
+
+#ifndef GUARDIA_REAL_H
+#define GUARDIA_REAL_H
+
+class Guardia_Real{
+	
+	private: 
+
+		string nombre;
+		int edad;
+		static const int CABALLERO=1;
+		static const int JINETE=2;
+		static const int ARQUERO=3;
+		int ataque;
+		int defensa;
+
+	public: 
+
+		Guardia_Real();
+		Guardia_Real(string, int, int, int);
+
+		string getNombre();
+		void setNombre(string);
+
+		int getEdad();
+		void setEdad(int);
+
+		string getLema();
+		void setLema(string);
+
+		int getAtaque();
+		void setAtaque(int);
+
+		int getDefensa();
+		void setDefensa(int);
+
+		~Guardia_Real();
+};
+
+#endif
