@@ -19,7 +19,7 @@ class Targaryen{
 	public: 
 
 		Targaryen();
-		Targaryen(string, string,  string, Dragones* dragones, int barcos);
+		Targaryen(string, string,  string, int barcos);
 
 		string getReina();
 		void setReina(string);
@@ -36,6 +36,8 @@ class Targaryen{
 		int getCantidad_Barcos();
 		void setCantidad_Barcos(int);
 
+		string toString();
+		
 		~Targaryen();
 };
 

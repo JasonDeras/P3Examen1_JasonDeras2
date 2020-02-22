@@ -16,11 +16,10 @@ Lannister::Lannister(){
 
 }
 
-Lannister::Lannister(string jefe_familia, string animal_emblema ,string lema, Guardia_Real* guardia_real, int dinero, int fuerza_montania, int cantidad_integrantes){
+Lannister::Lannister(string jefe_familia, string animal_emblema ,string lema, int dinero, int fuerza_montania, int cantidad_integrantes){
 	this->jefe_familia=jefe_familia;
 	this->animal_emblema=animal_emblema;
 	this->lema=lema;
-	this->guardia_real=guardia_real;
 	this->dinero=dinero;
 	this->fuerza_montania=fuerza_montania;
 	this->cantidad_integrantes=cantidad_integrantes;

@@ -22,7 +22,7 @@ class Lannister{
 	public: 
 
 		Lannister();
-		Lannister(string, string, string, Guardia_Real* guardia_real, int,  int, int);
+		Lannister(string, string, string, int,  int, int);
 
 		string getJefe_Familia();
 		void setJefe_Familia(string);

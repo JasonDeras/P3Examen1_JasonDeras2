@@ -10,15 +10,21 @@ using namespace std;
 
 //Instancias de las clases
 Starks* starks;
+Targaryen* targaryen;
+Lannister* lannister;
 
 //Contadores que ayudan con las familias
 int contador_Starks=0;
+int contador_Targaryen=0;
+int contador_Lannisters=0;
 
 //Lista de Familia noble
 Familia_Noble ** lista_familia_noble = new Familia_Noble *[10];//arreglo de 10 usuarios
 int cantiadad_nobles=0;
 
-
+//Lista de los dragones
+Dragones ** dragones = new Dragones *[10];//arreglo de 10 usuarios
+int cantidad_dragones=0;
 
 
 int menu_Principal(){
@@ -123,8 +129,30 @@ int main(){
 
 							break;}//Fin del creacion de los straks
 
-							case 2:{
+							case 3:{
 								
+								if(contador_Targaryen==1){
+									cout<<"Ya hay una familia starks"<<endl;
+								}else {
+
+									string reina;
+									string animal_emblema;
+									string lema;
+									int cantidad_barcos;
+
+									cout<<"Ingrese la Reina: ";
+									cin>>reina;
+									cout<<"Ingrese animal emblema: ";
+									cin>>animal_emblema;
+									cout<<"Ingrese el lema: ";
+									cin>>lema;
+									cout<<"Ingrese cantidad de barcos: ";
+									cin>>cantidad_barcos;
+									targaryen=new Targaryen(reina,animal_emblema,lema,cantidad_barcos);
+									contador_Targaryen=1;
+
+								}//Fin del if de creacion de los targaryen
+
 							break;}
 
 							default:{
@@ -141,6 +169,7 @@ int main(){
 
 						cout<<"Creacion de soldados"<<endl;
 						cout<<"1. Crear Familia noble"<<endl;
+						cout<<"2. Crear Dragones"<<endl;
 						cout<<"Ingrese una opcion: "<<endl;
 						cin>>opcion;
 						cout<<endl;
@@ -175,8 +204,45 @@ int main(){
         							cout<<endl<<"Se agrego el noble perfectamente"<<endl;    
 
      							}else{
-        							cout<<"Ya no hay espacio disponible en el arreglo para guardar nobñe"<<endl; 
+        							cout<<"Ya no hay espacio disponible en el arreglo para guardar dragones"<<endl; 
     							}//Fin del if que valida si estan lleno el arreglo de usuarios
+
+							break;}
+
+							case 2:{
+
+								if(cantidad_dragones<10){
+
+     								string nombre;
+									string color;
+									int tamanio;
+									int distancia_llama;
+									int ataque;
+									int defensa;
+
+       								cout<<"Ingrese el nombre: ";
+       								cin>>nombre; 
+        							cout<<"Ingrese el color: ";
+        							cin>>color;
+        							cout<<"Ingrese el tamaño: ";
+       								cin>>tamanio;
+        							cout<<"Ingrese la distancia de la llama: ";
+        							cin>>distancia_llama;
+        							cout<<"Ingrese el ataque: ";
+        							cin>>ataque;
+        							cout<<"Ingrese la defensa: ";
+        							cin>>defensa;
+                  
+        							//agregarlo a la lista
+        							dragones [cantidad_dragones] =new Dragones(nombre,color,tamanio,distancia_llama,ataque,defensa);
+        							cantidad_dragones++;     
+
+        							cout<<endl<<"Se agrego el dragon perfectamente"<<endl;    
+
+     							}else{
+        							cout<<"Ya no hay espacio disponible en el arreglo para guardar dragones"<<endl; 
+    							}//Fin del if que valida si estan lleno el arreglo de usuarios
+    							
 							break;}
 
 							default:{
@@ -194,12 +260,9 @@ int main(){
 
 							case 1:{
 
-								cout<<"Starks.cpp"<<endl;
+								cout<<"Starks"<<endl;
 								cout<<starks->toString()<<endl;
 								cout<<"Familas nobles"<<endl;
-									string lema;
-									int ataque;
-									int defensa;
 								for(int i=0;i<cantiadad_nobles;i++){
 		
 									cout<<"Famlilia noble: "<<i<<endl
@@ -211,6 +274,25 @@ int main(){
 								}
 								cout<<endl;
 							break;}//Caso para listar los starks
+
+							case 2:{
+
+								cout<<"Targaryen."<<endl;
+								cout<<targaryen->toString()<<endl;
+								cout<<"Dragones"<<endl;
+								for(int i=0;i<cantidad_dragones;i++){
+		
+									cout<<"Dragon: "<<i<<endl
+									<<"Nombre: "<<dragones[i]->getNombre()<<endl
+									<<"Color: "<<dragones[i]->getColor()<<endl
+									<<"Tamanño: "<<dragones[i]->getTamanio()<<endl
+									<<"Distancia de llama: "<<dragones[i]->getDistancia_LLama()<<endl
+									<<"Ataque: "<<dragones[i]->getAtaque()<<endl
+									<<"Defensa: "<<dragones[i]->getDefensa()<<endl;
+								}
+								cout<<endl;
+
+							break;}
 
 						}//Fin del switch para listar los ejercitos
 
@@ -240,6 +322,7 @@ int main(){
 		if(usuario==2){
 
 			delete starks;
+			delete targaryen;
 			break;
 
 		}else{ 
@@ -249,8 +332,26 @@ int main(){
 		}
 	}//Fin del while 
 
+	//Liberacion de starks
 	delete starks;
-	
+
+	//Liberacion de nobles
+	delete[]lista_familia_noble;				
+	if(lista_familia_noble!=NULL){
+		delete []lista_familia_noble;
+		lista_familia_noble=NULL;
+	}//Liberacion de memoria
+
+	//Liberacion de targaryen
+	delete targaryen;
+
+	//Libreacion de dragones
+    delete []dragones;							
+	if(dragones!=NULL){
+		delete []dragones;
+		dragones=NULL;
+	}//Liberacion de memoria
+
 	return 0;
 
 }//Fin del main 

@@ -1,7 +1,7 @@
 #include "Targaryen.h"
 #include "Dragones.h"
 #include <typeinfo>
-
+#include <sstream>
 using namespace std;
 
 Targaryen::Targaryen(){
@@ -14,11 +14,10 @@ Targaryen::Targaryen(){
 
 }
 
-Targaryen::Targaryen(string reina, string animal_emblema ,string lema, Dragones* dragones, int cantidad_barcos){
+Targaryen::Targaryen(string reina, string animal_emblema ,string lema, int cantidad_barcos){
 	this->reina=reina;
 	this->animal_emblema=animal_emblema;
 	this->lema=lema;
-	this->dragones=dragones;
 	this->cantidad_barcos=cantidad_barcos;
 }
 
@@ -60,6 +59,22 @@ int Targaryen::getCantidad_Barcos(){
 
 void Targaryen::setCantidad_Barcos(int cantidad_barcos){
 	this->cantidad_barcos=cantidad_barcos;
+}
+
+string Targaryen::toString(){
+
+	//Cantidad de barcos
+	stringstream ss;  
+	ss<<cantidad_barcos;  
+	string s;  
+	ss>>s;
+	
+	string sale="Reina: "+reina+"\n"
+	+"Animal Emblema: "+animal_emblema+"\n"
+	+"Lema:" +lema+"\n"
+	+"Cantidad de barcos: "+s+"\n";
+
+	return sale;
 }
 
 Targaryen::~Targaryen(){
