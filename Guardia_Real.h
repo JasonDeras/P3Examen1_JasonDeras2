@@ -12,14 +12,15 @@ class Guardia_Real{
 
 		string nombre;
 		int edad;
-		static const int CABALLERO=1;
-		static const int JINETE=2;
-		static const int ARQUERO=3;
 		int ataque;
 		int defensa;
 		int tipo;
 
 	public: 
+		
+		static const int CABALLERO=1;
+		static const int JINETE=2;
+		static const int ARQUERO=3;
 
 		Guardia_Real();
 		Guardia_Real(string, int, int, int,int);
@@ -41,7 +42,7 @@ class Guardia_Real{
 
 		int getTipo();
 		void setTipo(int); 
-		
+
 		~Guardia_Real();
 };
 

@@ -26,6 +26,9 @@ int cantiadad_nobles=0;
 Dragones ** dragones = new Dragones *[10];//arreglo de 10 usuarios
 int cantidad_dragones=0;
 
+//Lista de Gurdia Real
+Guardia_Real ** guardia= new Guardia_Real *[10];//arreglo de 10 usuarios
+int cantidad_guardas=0;
 
 int menu_Principal(){
 	
@@ -203,6 +206,7 @@ int main(){
 						cout<<"Creacion de soldados"<<endl;
 						cout<<"1. Crear Familia noble"<<endl;
 						cout<<"2. Crear Dragones"<<endl;
+						cout<<"3. Crear Guradia Real"<<endl;
 						cout<<"Ingrese una opcion: "<<endl;
 						cin>>opcion;
 						cout<<endl;
@@ -278,6 +282,51 @@ int main(){
     							
 							break;}
 
+							case 3:{
+									if(cantidad_guardas<10){
+
+     								string nombre;
+									int edad;
+									int ataque;
+									int defensa;
+									int tipo;
+
+       								cout<<"Ingrese el nombre: ";
+       								cin>>nombre; 
+        							cout<<"Ingrese la edad: ";
+       								cin>>edad;
+        							cout<<"Ingrese el ataque: ";
+        							cin>>ataque;
+        							cout<<"Ingrese el defensa: ";
+        							cin>>defensa;
+        							cout<<"1. Caballero"<<endl;
+        							cout<<"2. Jinete"<<endl;
+        							cout<<"3. Arquero"<<endl;
+        							cout<<"Ingrese una opcion: ";
+        							cin>>tipo;
+                  					
+                  					if(tipo==1){
+                  						//agregarlo a la lista
+        							guardia [cantidad_guardas] =new Guardia_Real(nombre,edad,ataque,defensa,Guardia_Real::CABALLERO);
+        							cantidad_guardas++;    
+                  					}
+                  					if(tipo==2){
+                  						guardia [cantidad_guardas] =new Guardia_Real(nombre,edad,ataque,defensa,Guardia_Real::JINETE);
+        							cantidad_guardas++;    
+                  					}
+
+                  					if(tipo==3){
+                  						guardia [cantidad_guardas] =new Guardia_Real(nombre,edad,ataque,defensa,Guardia_Real::ARQUERO);
+        							cantidad_guardas++;    
+                  					} 
+
+        							cout<<endl<<"Se agrego el guardia real perfectamente"<<endl;    
+
+     							}else{
+        							cout<<"Ya no hay espacio disponible en el arreglo para guardar guarida real"<<endl; 
+    							}//Fin del if que valida si estan lleno el arreglo de usuarios
+							break;}//Fin del guarida real
+
 							default:{
 								cout<<"Opcion no valida"<<endl;
 							break;}
@@ -309,9 +358,25 @@ int main(){
 							break;}//Caso para listar los starks
 
 							case 2:{
+									string nombre;
+									int edad;
+									int ataque;
+									int defensa;
+									int tipo;
 								cout<<"Lannisters"<<endl;
 								cout<<lannister->toString()<<endl;
-								cout<<"Familas nobles"<<endl;
+								cout<<"Guarida Real"<<endl;
+								for(int i=0;i<cantidad_guardas;i++){
+				
+									cout<<"Guardia Real: "<<i<<endl
+									<<"Nombre: "<<guardia[i]->getNombre()<<endl
+									<<"Edad: "<<guardia[i]->getEdad()<<endl
+									<<"Ataque: "<<guardia[i]->getAtaque()<<endl
+									<<"Defensa: "<<guardia[i]->getDefensa()<<endl
+									<<"Tipo: "<<guardia[i]->getTipo()<<endl;
+								}
+
+								cout<<endl;
 							break;}//Caso para listar los lannisters
 
 							case 3:{
@@ -364,8 +429,36 @@ int main(){
 
 		if(usuario==2){
 
-			delete starks;
-			delete targaryen;
+						//Liberacion de lannister
+				delete lannister;
+
+				//Liberacion de guardia real
+				delete[]guardia;				
+				if(guardia!=NULL){
+					delete []guardia;
+					guardia=NULL;
+				}//Liberacion de memoria
+
+				//Liberacion de starks
+				delete starks;
+
+				//Liberacion de nobles
+				delete[]lista_familia_noble;				
+				if(lista_familia_noble!=NULL){
+					delete []lista_familia_noble;
+					lista_familia_noble=NULL;
+				}//Liberacion de memoria
+
+				//Liberacion de targaryen
+				delete targaryen;
+
+				//Libreacion de dragones
+			    delete []dragones;							
+				if(dragones!=NULL){
+					delete []dragones;
+					dragones=NULL;
+				}//Liberacion de memoria
+				
 			break;
 
 		}else{ 
@@ -374,6 +467,16 @@ int main(){
 			cout<<endl;
 		}
 	}//Fin del while 
+
+	//Liberacion de lannister
+	delete lannister;
+
+	//Liberacion de guardia real
+	delete[]guardia;				
+	if(guardia!=NULL){
+		delete []guardia;
+		guardia=NULL;
+	}//Liberacion de memoria
 
 	//Liberacion de starks
 	delete starks;

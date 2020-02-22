@@ -8,9 +8,6 @@ Guardia_Real::Guardia_Real(){
 	
 	nombre="";
 	edad=0;
-	static const int CABALLERO=1;
-	static const int JINETE=2;
-	static const int ARQUERO=3;
 	ataque=0;
 	defensa=0;
 	tipo=0;
