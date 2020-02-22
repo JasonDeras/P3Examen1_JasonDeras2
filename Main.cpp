@@ -129,10 +129,43 @@ int main(){
 
 							break;}//Fin del creacion de los straks
 
+							case 2:{
+
+								if(contador_Lannisters==1){
+									cout<<"Ya hay una familia lannisters"<<endl;
+								}else {
+
+									string jefe_familia;
+									string animal_emblema;
+									string lema;
+									int dinero;
+									int fuerza_montania;
+									int cantidad_integrantes;
+
+
+									cout<<"Ingrese el nommbre del jefe de familiar: ";
+									cin>>jefe_familia;
+									cout<<"Ingrese el animal emblema: ";
+									cin>>animal_emblema;
+									cout<<"Ingrese el lema: ";
+									cin>>lema;
+									cout<<"Ingrese dinero: ";
+									cin>>dinero;
+									cout<<"Fuerza de montaña: ";
+									cin>>fuerza_montania;
+									cout<<"Cantidad de integrantes: ";
+									cin>>cantidad_integrantes;
+
+									lannister=new Lannister(jefe_familia, animal_emblema,lema,dinero,fuerza_montania,cantidad_integrantes);
+									contador_Lannisters=1;
+
+								}//Fin del if de creacion de los starks
+							break;}//Fin de la creacion de los lannisters
+
 							case 3:{
 								
 								if(contador_Targaryen==1){
-									cout<<"Ya hay una familia starks"<<endl;
+									cout<<"Ya hay una familia targaryen"<<endl;
 								}else {
 
 									string reina;
@@ -276,6 +309,12 @@ int main(){
 							break;}//Caso para listar los starks
 
 							case 2:{
+								cout<<"Lannisters"<<endl;
+								cout<<lannister->toString()<<endl;
+								cout<<"Familas nobles"<<endl;
+							break;}//Caso para listar los lannisters
+
+							case 3:{
 
 								cout<<"Targaryen."<<endl;
 								cout<<targaryen->toString()<<endl;
@@ -292,6 +331,10 @@ int main(){
 								}
 								cout<<endl;
 
+							break;}//Fin del case para listar los targaryen
+
+							default:{
+								cout<<"Opcion no valida"<<endl;
 							break;}
 
 						}//Fin del switch para listar los ejercitos

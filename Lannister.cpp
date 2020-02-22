@@ -1,7 +1,7 @@
 #include "Lannister.h"
 #include "Guardia_Real.h"
 #include <typeinfo>
-
+#include <sstream>
 using namespace std;
 
 Lannister::Lannister(){
@@ -79,6 +79,36 @@ int Lannister::getCantidad_Integrantes(){
 
 void Lannister::setCantidad_Integrantes(int cantidad_integrantes){
 	this->cantidad_integrantes=cantidad_integrantes;
+}
+
+string Lannister::toString(){
+
+	//Cantidad del dinero
+	stringstream ss;  
+	ss<<dinero;  
+	string s;  
+	ss>>s;  
+
+	//Cantidad de fuerza de montaña
+	stringstream ss2;  
+	ss2<<fuerza_montania;
+	string s2;  
+	ss2>>s2; 
+
+	//Cantidad de integrantes
+	stringstream ss3;  
+	ss3<<cantidad_integrantes;
+	string s3;  
+	ss3>>s3; 
+	
+	string sale="Jefe de familiar: "+jefe_familia+"\n"
+	+"Emblema Animal: "+animal_emblema+"\n"
+	+"Lema:" +lema+"\n"
+	+"Dinero: "+s+"\n"
+	+"Fuerza de montaño: "+s2+"\n"
+	+"Cantidad de integrantes: ;"+s3+"\n";
+
+	return sale;
 }
 
 Lannister::~Lannister(){

@@ -45,6 +45,8 @@ class Lannister{
 		int getCantidad_Integrantes();
 		void setCantidad_Integrantes(int);
 
+		string toString();
+		
 		~Lannister();
 };
 
